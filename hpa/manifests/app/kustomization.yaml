@@ -1,0 +1,4 @@
+resources:
+- api_service.yaml
+- api_deployment.yaml
+- api_hpa.yaml

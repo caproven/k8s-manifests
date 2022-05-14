@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-api-deployment
+  labels:
+    app: hello-api
+spec:
+  selector:
+    matchLabels:
+      app: hello-api
+  template:
+    metadata:
+      labels:
+        app: hello-api
+    spec:
+      containers:
+        - name: hello-api
+          image: hello-api:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+              name: hello-api-svc
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "20Mi"
+            limits:
+              cpu: "50m"
+              memory: "100Mi"
